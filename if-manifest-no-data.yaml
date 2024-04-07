@@ -1,0 +1,73 @@
+name: abovo-carbon24
+description: Ab Ovo Impact Framework manifest file for Carbon24 hackathon.
+tags:
+params:
+  # each of these parameters is a required attribute for each input observation in the manifest
+  - name: timestamp
+    description: Starting timestamp of observation, on second level
+    aggregation: none
+    unit: none
+  - name: META_UNIQUEID
+    description: Unique identifier of server environment that the observation took place on.
+    aggregation: none
+    unit: none
+  - name: grid/carbon-intensity
+    description: Carbon intensity at location of server environment at time of timestamp. This needs to be
+                 provided as input to the manifest due to performance issues with WattTime (see comment
+                 in pipeline)
+    aggregation: avg
+    unit: gCO2e/kWh
+  - name: duration
+    description: Duration of observation in seconds. Only value 1 is currently supported by the Power BI report
+                 that loads in the output manifest data. For the manifest itself, other values are supported.
+    aggregation: sum
+    unit: second
+  - name: memory/capacity
+    description: The total amount of memory available, in GB, at timestamp.
+    aggregation: avg
+    unit: GB
+  - name: cpu/utilization
+    description: Proportion (between 0 and 1 as decimal) of total CPU capacity being used at timestamp. 
+    aggregation: avg
+    unit: proportion
+  - name: memory/utilization
+    description: Proportion (between 0 and 1 as decimal) of total RAM capacity being used at timestamp. 
+    aggregation: avg
+    unit: proportion
+  - name: cpu/thermal-design-power
+    description: Thermal design power of CPU. We provide this as input parameter to the manifest as not all CPUs 
+                 are recognized currently by existing plugins.
+    aggregation: avg
+    unit: watt
+initialize:
+  outputs: ['yaml']
+  plugins:   
+    e-mem:
+      method: EMem
+      path: '@grnsft/if-plugins'
+      global-config:
+        energy-per-gb: 0.000392
+    teads-curve:
+      method: TeadsCurve
+      path: '@grnsft/if-unofficial-plugins'
+      global-config:
+        interpolation: spline
+    sci-e:
+      method: SciE
+      path: '@grnsft/if-plugins'
+    watt-time:
+      method: WattTimeGridEmissions
+      path: '@grnsft/if-unofficial-plugins'
+    sci-o:
+      method: SciO
+      path: '@grnsft/if-plugins'
+tree:
+  pipeline:
+    - e-mem
+    - teads-curve
+    - sci-e
+    # Usage of watt-time is currently commented out due to performance issues. Please see our submission report. 
+    # - watt-time
+    - sci-o
+  inputs: 
+    # paste in data here
