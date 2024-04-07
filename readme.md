@@ -1,7 +1,5 @@
 ## Usage instructions
 
-Having cloned this repo, and installed Node.js v20, execute the following:
-
 1. Clone this repo
 1. Install Node.js v20 for your platform, if not installed yet, along with npm
 1. Execute `npm install` to install dependencies
