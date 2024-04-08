@@ -8,8 +8,8 @@ This repository accompanies our Carbon24 submission, more information on our sub
 1. Install Node.js v20 for your platform, if not installed yet, along with npm
 1. Add a terminal session with the cloned repository as your working directory. 
 1. Execute `npm install` to install dependencies
-1. If you'd like to use our example input dataset, unzip `./example-data/if-manifest-data.zip` into your working directory. You can also paste in custom data in our Impact Framework manifest at `./if-manifest-no-data.yaml`
-1. Execute `npx ie --manifest ./if-manifest-data.yaml --output ./if-manifest-output` to process the example input manifest file. Results are written to `if-manifest-output.yaml` in your active directory.
+1. If you'd like to use our example input datasets, unzip `./example-data/if-manifest-data.zip` into your working directory. For a quick execution time, you are recommended to use our sampled dataset (`if-manifest-data-sample.yaml`) first. You can also paste in custom data in our Impact Framework manifest at `./if-manifest-no-data.yaml`. 
+1. Execute `npx ie --manifest ./if-manifest-data-sample.yaml --output ./if-manifest-output` to process the example input manifest file. Results are written to `if-manifest-output.yaml` in your active directory.
 
 ## Demo of Power BI report
 
