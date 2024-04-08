@@ -11,6 +11,10 @@ This repository accompanies our Carbon24 submission, more information on our sub
 1. If you'd like to use our example input dataset, unzip `./example-data/if-manifest-data.zip`. You can also paste in custom data in our Impact Framework manifest at `./if-manifest-no-data.yaml`
 1. Execute `npx ie --manifest {manifest_file} --output ./if-manifest-output` to process the exmple input manifest file. Results are written to `if-manifest-output.yaml` in your active directory.
 
+## Demo of Power BI report
+
+[Check out this public demo of the Power BI report](https://app.powerbi.com/view?r=eyJrIjoiODBmMWFiYWEtNGI5Ny00OTYwLWFhNTAtYTNkYTBkZTJhZTFjIiwidCI6ImIwZGM1ZWE3LTExOTctNDUxMC05MjhhLTkyZDJjZjRiNzdlZSIsImMiOjh9)
+
 ## Usage instruction: Power BI semantic model / report
 
 1. Install Power BI Desktop (note that as of the moment of writing (April 2024), this is only available for Windows)
