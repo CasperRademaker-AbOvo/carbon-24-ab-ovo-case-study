@@ -4,7 +4,7 @@ tags:
 params:
   # each of these parameters is a required attribute for each input observation in the manifest
   - name: timestamp
-    description: Starting timestamp of observation, on second level, in ISO notation with ISO 8601
+    description: Starting timestamp of observation, on second level, in ISO 8601
                  notation. Please note that the timezone postfix should be included and should be 
                  equal to "Z" (i.e. UTC-timezone). Only UTC-timezone is currently supported; all 
                  output is thus also in UTC-time.
@@ -77,7 +77,8 @@ tree:
     - e-mem
     - teads-curve
     - sci-e
-    # Usage of watt-time is currently commented out due to performance issues. Please see our submission report. 
+    # Usage of watt-time is currently commented out due to performance issues. Please see our submission report for more details: 
+    # https://github.com/Green-Software-Foundation/hack/issues/125 
     # - watt-time
     - sci-o
   inputs: 
