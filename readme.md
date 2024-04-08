@@ -19,7 +19,7 @@ This repository accompanies our Carbon24 submission, more information on our sub
 
 1. Install Power BI Desktop (note that as of the moment of writing (April 2024), this is only available for Windows)
 1. Create a dedicated directory on your hard drive where you will store input files for the Power BI model.
-1. Convert the output manifest file to JSON (Power BI currently can't import YAML). For example you can use https://github.com/bronze1man/yaml2json. Store the JSON in the created directory from previous step.
+1. Convert the output manifest file to JSON (Power BI currently can't import YAML). For example you can use https://github.com/bronze1man/yaml2json. Store the JSON in the created directory from previous step. On Windows we can use `Get-Content .\if-manifest-output.yaml | {yaml2json binary} > .\if-manifest-output.json` from Powershell. 
 1. Create a subdirectory for grid emission data from https://www.electricitymaps.com/data-portal. The Power BI model only works with hourly data. Download only the timeframes that overlap with your input dataset, and only regions of particular interest, as all input data will currently be used to join with your immpact framwork manifest. More data means longer processing times (or possibly, out of memory issues).
 1. In the created directory (from step 2) you will also need to store a CSV file with log lines from your application. The requirements for this file are mentioned in section `Requirements for application logs`.
 1. Open `Carbon24 Ab Ovo submission.pbit` in Power BI Desktop.
