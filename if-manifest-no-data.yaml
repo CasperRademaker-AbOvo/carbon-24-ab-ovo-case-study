@@ -43,11 +43,11 @@ params:
     aggregation: avg
     unit: watt
   - name: cpu/usage_cycles
-    description: Total CPU cycles used at timestamp over duration seconds. 
+    description: CPU cycles limit at timestamp. This follows from the available processor(s) at timestamp.
     aggregation: sum
     unit: cpu_cycle
   - name: memory/usage_GB
-    description: Total GB RAM used at timestamp over duration seconds. 
+    description: Total GB RAM available at timestamp.
     aggregation: avg
     unit: GB
 initialize:
