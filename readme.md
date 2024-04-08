@@ -29,10 +29,11 @@ This repository accompanies our Carbon24 submission, more information on our sub
 
 ## Requirements for application logs
 
-Logs should be stored in a single CSV file, with semicolon as delimiter.
-Each row in the CSV file should contain a single function/process call or transaction in your application. 
-All observations are assumed to take one second. If your observations take longer than one second, please split them over multiple rows. 
-The CSV file should contain the following columns. All columns are mandatory to exist currently.
+- Logs should be stored in a single CSV file, with semicolon as delimiter.  
+- Each row in the CSV file should contain a single function/process call or transaction in your application.  
+- All observations are assumed to take one second. If your observations take longer than one second, please split them over multiple rows.  
+
+The CSV file should contain the following columns. All columns are mandatory to exist currently.  
 
 1. `META_UNIQUEID`: Unique identifier of server environment that the observation took place on. Needs to match with values from manifest.
 1. `timestamp`: Starting timestamp of observation, on second level, in ISO 8601 notation. Please note that the timezone postfix should NOT be included, all timestamps are assumed to be in UTC time.
