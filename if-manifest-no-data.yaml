@@ -4,7 +4,10 @@ tags:
 params:
   # each of these parameters is a required attribute for each input observation in the manifest
   - name: timestamp
-    description: Starting timestamp of observation, on second level
+    description: Starting timestamp of observation, on second level, in ISO notation with ISO 8601
+                 notation. Please note that the timezone postfix should be included and should be 
+                 equal to "Z" (i.e. UTC-timezone). Only UTC-timezone is currently supported; all 
+                 output is thus also in UTC-time.
     aggregation: none
     unit: none
   - name: META_UNIQUEID
@@ -39,6 +42,14 @@ params:
                  are recognized currently by existing plugins.
     aggregation: avg
     unit: watt
+  - name: cpu/usage_cycles
+    description: Total CPU cycles used at timestamp over duration seconds. 
+    aggregation: sum
+    unit: cpu_cycle
+  - name: memory/usage_GB
+    description: Total GB RAM used at timestamp over duration seconds. 
+    aggregation: avg
+    unit: GB
 initialize:
   outputs: ['yaml']
   plugins:   
