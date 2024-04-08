@@ -43,11 +43,11 @@ params:
     aggregation: avg
     unit: watt
   - name: cpu/usage_cycles
-    description: CPU cycles limit at timestamp. This follows from the available processor(s) at timestamp.
+    description: Total (summed over all function calls in use) CPU cycles used at timestamp.
     aggregation: sum
     unit: cpu_cycle
   - name: memory/usage_GB
-    description: Total GB RAM available at timestamp.
+    description: Total GB RAM utilized at timestamp.
     aggregation: avg
     unit: GB
 initialize:
@@ -58,6 +58,13 @@ initialize:
       path: '@grnsft/if-plugins'
       global-config:
         energy-per-gb: 0.000392
+    amend-memory-energy-usage:
+      method: Divide
+      path: '@grnsft/if-plugins'
+      global-config:
+        numerator: memory/energy
+        denominator: 3600
+        output: memory/energy
     teads-curve:
       method: TeadsCurve
       path: '@grnsft/if-unofficial-plugins'
@@ -75,6 +82,8 @@ initialize:
 tree:
   pipeline:
     - e-mem
+    # divide energy/usage from e-mem by 3600 (# seconds in an hour), as e-mem results in energy usage assuming utilization of an hour
+    - amend-memory-energy-usage
     - teads-curve
     - sci-e
     # ------------------------------------------------------------------------------------
