@@ -77,8 +77,19 @@ tree:
     - e-mem
     - teads-curve
     - sci-e
+    # ------------------------------------------------------------------------------------
     # Usage of watt-time is currently commented out due to performance issues. Please see our submission report for more details: 
     # https://github.com/Green-Software-Foundation/hack/issues/125 
+
+    # In case you do want to use watt-time, do the following:
+    # 1. Remove grid/carbon-intensity from the parameter list and don't include it in your input data
+    # 2. Add `geolocation`, `cloud/region-wt-id` or `cloud/region-geolocation` as param and input data to your manifest, 
+    #    see https://github.com/Green-Software-Foundation/if-unofficial-plugins/tree/main/src/lib/watt-time
+    # 3. Add WattTime authentication env params, 
+    #    as per https://github.com/Green-Software-Foundation/if-unofficial-plugins/tree/main/src/lib/watt-time#authentication
+  
+    # ------------------------------------------------------------------------------------
+
     # - watt-time
     - sci-o
   inputs: 
